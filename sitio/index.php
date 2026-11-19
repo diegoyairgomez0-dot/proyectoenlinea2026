@@ -1,11 +1,36 @@
+<?php
+	$BDProductos = array(
+		array(1, 2, 3, 4, 5),
+		array("Blusa", "Lentes","Playera", "Pantalon","Vestido"),
+		array(100, 350, 200, 420, 250),
+		array("Dama","Caballero","Caballero", "Dama", "Dama")
+	);
+	$iProductos = 5;  //Indica el no. de Productos
+
+	$BDAlmacen = array(
+		array(1, 2, 3, 4, 5),
+		array(0, 10, 5, 15, 3)
+	);
+
+	$iAlmacen = 2; //El no. de Existencias
+
+	$BDVentas = array(
+		array(2, 3), // El ID del Producto
+		array(2, 1), // la cantidad
+		array(700, 200) //El Monto
+	);
+
+	$iVentas = 2;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Software Punto de Venta" content="">
-    <meta name="CHRISTIAN DE LOS RIOS Y DIEGO GOMEZ" content="">
-    <title>Inicio | X3XX</title>
+    <meta name="Gerardo Aguilar" content="">
+    <title>Inicio | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -32,8 +57,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +52 618 6666 777</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> DIEGOCHIKITIN@gmail.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +52 618 1200 776</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> eshoppersoporte@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -50,8 +75,9 @@
 					<div class="col-sm-4">
 						<div class="logo pull-left">
 							<a href="index.php"><img src="images/home/logo.png" alt="" /></a>
-			<H4>Proyecto de: christian de los rios y diego gomez </H4>			<h4>3ero programacion Vespert</h4>s		
-			          </div>
+			<H3>Proyecto de: NOMBREALUMNO </H3>		
+			<H4>3ero Programación Vesp</H4>
+						</div>						
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
@@ -148,7 +174,8 @@
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Categoría 1</a></h4>
+									<h4 class="panel-title"><a href="#">Damas</a></h4>
+									<h4 class="panel-title"><a href="#">Caballeros</a></h4>
 								</div>
 							</div>
 						</div><!--/category-products-->
@@ -163,29 +190,33 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Catálogo de Productos</h2>
+					<?php  
+			for ($i=0; $i < $iProductos; $i++){
+					?>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Producto 1</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
+						<?php $img = $BDProductos[0][$i]; ?>
+				<img src="images/home/<?php echo $img; ?>.jpg" 
+					 alt="" width="210" height="180"/>
+					 <h2> <?php echo $BDProductos[2][$i]; ?> </h2>
+					 <p> <?php echo $BDProductos[1][$i]; ?> </p>						
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Producto 1</p>
+												<h2><?php echo $BDProductos[2][$i]; ?</h2>
+												<p><?php echo $BDProductos[1][$i]; ?</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 											</div>
 										</div>
 								</div>								
 							</div>
 						</div>
-						
+					<?php }  //Aqui cierra el Ciclo ?>	
 					</div><!--features_items-->
-					
-					
+										
 					
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">Productos Recomendados</h2>
